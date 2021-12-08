@@ -1,0 +1,83 @@
+
+
+.image {
+    width: 100%;
+    border-radius: 3px;
+}
+
+.imgWrapper {
+    width: 100%;
+}
+
+.mainContainer {
+    margin: 0 auto;
+    background-color: white;
+    width: 75%;
+}
+
+
+.postContainer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    flex-direction: column;
+}
+
+.commentCard {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+
+.commentImgWrapper {
+    width: 70px;
+    margin-right: 10px;
+
+}
+
+.commentImgWrapper img {
+    width: 100%;
+    border-radius: 50%;
+
+}
+
+.commentSection {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-shadow: inset 0 0 4px 1px;
+    border-radius: 5px;
+}
+
+.likeButton {
+    font-size: 40px;
+}
+
+.creatorSection {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+}
+
+.postText {
+    padding: 10px 20px;
+}
+
+
+.commentInputContent, .commentInputContent input {
+    width: 100%;
+}
+
+.commentInputWrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentInputWrapper button {
+    width: 7%;
+    padding: 4px;
+    border-radius: 3px;
+}

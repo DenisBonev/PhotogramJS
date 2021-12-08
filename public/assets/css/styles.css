@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap');
+@import url('https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+
+body {
+    background-image: url("..//img/27508541-soft-wooden-texture-empty-wood-background.webp");
+}
+
+
+.toggle-menu {
+    padding: 0;
+}
+
+.toggle-menu li {
+    padding: 0;
+    margin-bottom: 5px;
+}
+
+.toggle-menu li a {
+    border-radius: 0;
+}
+
+.logo-title {
+    font-family: "Comforter Brush", sans-serif;
+    margin: 0;
+}
+
+
+

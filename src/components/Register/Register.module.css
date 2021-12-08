@@ -1,0 +1,49 @@
+.formWrapper {
+    min-height: 65vh;
+}
+
+.loginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.inputLi {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+.formSubmitBtn {
+    margin: 10px auto;
+    padding: 5px 23px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    background-color: #bd081c;
+    color: white;
+}
+
+.inputList {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.formInput {
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0;
+    border: none;
+    height: 33px;
+}
