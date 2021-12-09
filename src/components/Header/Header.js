@@ -16,13 +16,19 @@ export default function Header(){
                 <div className="collapse navbar-collapse" id="navbarsDefault">
                     <ul className="navbar-nav ml-auto align-items-center">
                         <li className="nav-item">
-                            <a className="nav-link active" href="index.html">Home</a>
+                            <a className="nav-link" href="/login">Login</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="post-portrait.html">Post</a>
+                            <a className="nav-link" href="/register">Register</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="author.html"><img className="rounded-circle mr-2"
+                            <a className="nav-link active" href="/">Home</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/details">Post</a>
+                        </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="/my-profile"><img className="rounded-circle mr-2"
                                                                             src="assets/img/av.png"
                                                                             width="30"/><span
                                 className="align-middle">Author</span></a>

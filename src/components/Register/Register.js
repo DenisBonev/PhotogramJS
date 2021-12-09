@@ -20,7 +20,7 @@ export default function Register(){
                         <input className={styles.formInput} type="password" name="repeat-password" id="repeat-password"/>
                     </li>
                     <li className={styles.inputLi}>
-                        <button className={styles.formSubmitBtn}>Login</button>
+                        <button className={styles.formSubmitBtn}>Register</button>
                     </li>
                 </ul>
             </form>

@@ -1,11 +1,11 @@
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/Home/Home";
-import Register from "./components/Register/Register";
+import {Routes, Route} from "react-router-dom";
 import Login from "./components/Login/Login";
+import Register from "./components/Register/Register";
 import Profile from "./components/Profile/Profile";
 import DetailsPortrait from "./components/DetailsPortrait/DetailsPortrait";
-import DetailsLandscape from "./components/DetailsLandscape/DetailsLandscape";
 
 function App() {
     return (
@@ -13,13 +13,13 @@ function App() {
             <Header/>
 
             <main role="main">
-
-                {/*<Home/>*/}
-                {/*<Register/>*/}
-                {/*<Login/>*/}
-                {/*<Profile/>*/}
-                <DetailsPortrait/>
-                {/*<DetailsLandscape/>*/}
+                <Routes>
+                    <Route path="/" element={<Home/>}/>
+                    <Route path="/register" element={<Register/>}/>
+                    <Route path="/login" element={<Login/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+                    <Route path="/details" element={<DetailsPortrait/>}/>
+                </Routes>
             </main>
 
             <script src="../public/assets/js/app.js"></script>
