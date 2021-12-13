@@ -2,7 +2,7 @@ export default function Header(){
     return(
         <header>
             <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-                <a className="navbar-brand font-weight-bolder mr-3" href="index.html">
+                <a className="navbar-brand font-weight-bolder mr-3" href="/">
                     <div className="row align-items-center">
                         <img src="assets/img/logo.png"/>
                         <p className="logo-title">PhotoGram</p>
@@ -28,7 +28,7 @@ export default function Header(){
                             <a className="nav-link" href="/details">Post</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/my-profile"><img className="rounded-circle mr-2"
+                            <a className="nav-link" href="/profile"><img className="rounded-circle mr-2"
                                                                             src="assets/img/av.png"
                                                                             width="30"/><span
                                 className="align-middle">Author</span></a>

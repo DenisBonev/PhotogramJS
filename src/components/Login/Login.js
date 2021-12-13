@@ -15,7 +15,7 @@ export default function Login(){
                         <input className={styles.formInput} type="password" name="password" id="password"/>
                     </li>
                     <li className={styles.inputLi}>
-                        <button className={styles.formSubmitBtn}>Register</button>
+                        <button className={styles.formSubmitBtn}>Login</button>
                     </li>
                 </ul>
             </form>

@@ -14,6 +14,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 20%;
 }
 
 
@@ -21,16 +22,19 @@
     display: flex;
     flex-direction: column;
     list-style: none;
+    margin: 7px;
 }
 
 .formSubmitBtn {
     margin: 10px auto;
     padding: 5px 23px;
-    border-radius: 5px;
-    font-size: 15px;
+    border-radius: 9px;
+    font-size: 17px;
     border: none;
     background-color: #bd081c;
     color: white;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .inputList {
@@ -46,4 +50,6 @@
     box-shadow: 0 0 3px 0;
     border: none;
     height: 33px;
+    font-size: 18px;
+    font-weight: 600;
 }

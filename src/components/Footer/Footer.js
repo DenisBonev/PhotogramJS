@@ -1,6 +1,6 @@
 export default function Footer(){
     return(
-        <footer className="footer pt-5 pb-5 text-center">
+        <footer className="footer text-center">
 
             <div className="container">
 
