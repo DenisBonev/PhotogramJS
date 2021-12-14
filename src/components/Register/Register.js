@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import {registerUser} from "../../services/userService";
+import * as userService from "../../services/userService";
 import styles from "./Register.module.css";
 
 export default function Register(){
@@ -12,7 +12,8 @@ export default function Register(){
         if (formData.get("password") === formData.get("repeat-password")){
             let userData = Object.fromEntries(formData);
             delete userData['repeat-password'];
-            registerUser(userData).then(r=>console.log(r));
+            userService.registerUser(userData).then(r=>console.log(r));
+
             navigate("/");
         }
     }
