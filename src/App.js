@@ -8,6 +8,7 @@ import DetailsPortrait from "./components/DetailsPortrait/DetailsPortrait";
 import AddPost from "./components/AddPost/AddPost";
 import {AuthContext} from "./contexts/AuthContext";
 import {useState} from "react";
+import Home from "./components/Home/Home";
 
 function App() {
 
@@ -29,11 +30,12 @@ function App() {
 
                 <main role="main">
                     <Routes>
-                        <Route path="/" element={<AddPost/>}/>
+                        <Route path="/" element={<Home/>}/>
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/login" element={<Login onLogin={onLogin}/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/details" element={<DetailsPortrait/>}/>
+                        <Route path="/post" element={<AddPost/>}/>
                     </Routes>
                 </main>
 

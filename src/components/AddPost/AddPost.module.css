@@ -1,0 +1,91 @@
+.fileLabel{
+    background-color: #bd081c;
+    color: white;
+    font-weight: bold;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.formFileInput{
+    display: none;
+}
+
+.formWrapper {
+    min-height: 79vh;
+}
+
+.loginForm {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+}
+
+
+.inputLi {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 7px;
+}
+
+.formSubmitBtn {
+    margin: 10px auto;
+    padding: 5px 23px;
+    border-radius: 9px;
+    font-size: 17px;
+    border: none;
+    background-color: #bd081c;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.inputList {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+}
+
+.formInput {
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0;
+    border: none;
+    height: 33px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+
+.formTextArea {
+    border-radius: 15px;
+    box-shadow: 0 0 3px 0;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 10px;
+}
+
+.alertMessage{
+    color: #bd081c;
+    display: none;
+}
+
+.loadedImage{
+    width: 80%;
+    margin: 10px auto;
+    border-radius: 5px;
+}
