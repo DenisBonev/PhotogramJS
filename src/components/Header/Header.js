@@ -1,17 +1,24 @@
-export default function Header({username}) {
+import {Link} from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../contexts/AuthContext";
+
+export default function Header() {
+    const {userData} = useContext(AuthContext);
+
+
     const loggedNav = (
         <>
         <li className="nav-item">
-            <a className="nav-link" href="/details">Post</a>
+            <Link className="nav-link" to="/post">Post</Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link" href="/profile"><img className="rounded-circle mr-2"
-                                                         src="assets/img/av.png"
+            <Link className="nav-link" to="/profile"><img className="rounded-circle mr-2"
+                                                         src="../../../public/assets/img/av.png"
                                                          width="30"/><span
-                className="align-middle">{username}</span></a>
+                className="align-middle">{userData.username}</span></Link>
         </li>
         <li className="nav-item dropdown">
-            <a className="nav-link" href="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
+            <Link className="nav-link" to="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
                aria-expanded="false">
                 <svg style={{marginTop: 10}} className="_3DJPT" version="1.1" viewBox="0 0 32 32"
                      width="21"
@@ -20,23 +27,23 @@ export default function Header({username}) {
                         d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"
                         data-reactid="22"></path>
                 </svg>
-            </a>
-            <div className="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
+            </Link>
+            <div className = "dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
                 <h4 className="dropdown-header display-4">
                     Menu
                 </h4>
                 <div className="dropdown-divider"></div>
                 <ul className="toggle-menu">
                     <li className="dropdown-item">
-                        <a href="#" className="btn btn-primary d-block">
+                        <Link to="#" className="btn btn-primary d-block">
                             My Profile
-                        </a>
+                        </Link>
                     </li>
 
                     <li className="dropdown-item">
-                        <a href="#" className="btn btn-primary d-block">
+                        <Link to="#" className="btn btn-primary d-block">
                             Logout
-                        </a>
+                        </Link>
                     </li>
                 </ul>
             </div>
@@ -49,10 +56,10 @@ export default function Header({username}) {
                 const guestNav =(
                 <>
                     <li className="nav-item">
-                        <a className="nav-link" href="/login">Login</a>
+                        <Link className="nav-link" to="/login">Login</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/register">Register</a>
+                        <Link className="nav-link" to="/register">Register</Link>
                     </li>
                 </>
                 )
@@ -60,12 +67,12 @@ export default function Header({username}) {
                 return(
                 <header>
                     <nav className="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-                        <a className="navbar-brand font-weight-bolder mr-3" href="/">
+                        <Link className="navbar-brand font-weight-bolder mr-3" to="/">
                             <div className="row align-items-center">
-                                <img src="assets/img/logo.png"/>
+                                <img src="../../../public/assets/img/logo.png"/>
                                 <p className="logo-title">PhotoGram</p>
                             </div>
-                        </a>
+                        </Link>
                         <button className="navbar-light navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarsDefault"
                                 aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -75,9 +82,9 @@ export default function Header({username}) {
                             <ul className="navbar-nav ml-auto align-items-center">
 
                                 <li className="nav-item">
-                                    <a className="nav-link active" href="/">Home</a>
+                                    <Link className="nav-link active" to="/">Home</Link>
                                 </li>
-                                { username
+                                { userData.username
                                     ? loggedNav
                                     : guestNav
                                 }

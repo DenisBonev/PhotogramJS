@@ -15,16 +15,16 @@ function App() {
     const [userData,setUserData] = useState({
         username: '',
         objectId: '',
-        'user-token': '',
+        userToken: '',
 
     });
 
-    const onLogin = (userData) => {
+    const login = (userData) => {
         setUserData(userData);
     }
 
     return (
-        <AuthContext.Provider value={true}>
+        <AuthContext.Provider value={{userData ,login}}>
             <div className="App">
                 <Header username={userData.username}/>
 
@@ -32,7 +32,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home/>}/>
                         <Route path="/register" element={<Register/>}/>
-                        <Route path="/login" element={<Login onLogin={onLogin}/>}/>
+                        <Route path="/login" element={<Login/>}/>
                         <Route path="/profile" element={<Profile/>}/>
                         <Route path="/details" element={<DetailsPortrait/>}/>
                         <Route path="/post" element={<AddPost/>}/>

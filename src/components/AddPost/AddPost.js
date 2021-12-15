@@ -2,8 +2,11 @@ import styles from "./AddPost.module.css";
 import {useState} from "react";
 import * as imageService from "../../services/imageService";
 import { useNavigate } from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../contexts/AuthContext";
 
 export default function AddPost() {
+    const {userData} = useContext(AuthContext);
     const [selectedFileSrc, setSelectedFileSrc] = useState(null);
     const navigate = useNavigate();
 
@@ -15,7 +18,7 @@ export default function AddPost() {
     const onSubmit = (e) => {
         e.preventDefault();
         const formData = Object.fromEntries(new FormData(e.currentTarget));
-        imageService.uploadImagePost(formData)
+        imageService.uploadImagePost(formData,userData['userToken'])
             .then(()=>{
                 navigate('/');
             })

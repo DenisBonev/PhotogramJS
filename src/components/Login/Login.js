@@ -1,21 +1,25 @@
 import styles from "./Login.module.css";
 import * as userService from "../../services/userService"
 import { useNavigate } from "react-router-dom";
+import {useContext} from "react";
+import {AuthContext} from "../../contexts/AuthContext";
 
-export default function Login({onLogin:callback}){
+export default function Login(){
 
+    const {login} = useContext(AuthContext);
     const navigate = useNavigate();
 
     const onLogin = (e) =>{
         e.preventDefault();
         let {username,password} = Object.fromEntries(new FormData(e.currentTarget));
         userService.login({username,password})
-            .then(r=>{
-                callback({
-                    username:r.username,
-                    'user-token':r['user-token'],
-                    objectId:r.objectId
-                })
+            .then(res=>{
+                console.log(res);
+                login({
+                    username:res.username,
+                    userToken:res['user-token'],
+                    objectId:res.objectId
+                });
                 navigate('/');
             })
             .catch(ex=>{
