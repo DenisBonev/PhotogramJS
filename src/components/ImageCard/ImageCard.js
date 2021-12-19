@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default function ImageCard({imageData}) {
     return (
         <div className="card card-pin">
@@ -7,9 +9,9 @@ export default function ImageCard({imageData}) {
             <div className="overlay">
                 <h2 className="card-title title">{imageData.title}</h2>
                 <div className="more">
-                    <a href={imageData.objectId}>
+                    <Link to={`details/${imageData.objectId}`}>
                         <i className="fa fa-arrow-circle-o-right" aria-hidden="true"></i> More
-                    </a>
+                    </Link>
                 </div>
             </div>
         </div>

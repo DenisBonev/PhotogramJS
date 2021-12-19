@@ -14,17 +14,15 @@ export default function Login(){
         let {username,password} = Object.fromEntries(new FormData(e.currentTarget));
         userService.login({username,password})
             .then(res=>{
-                console.log(res);
                 login({
                     username:res.username,
                     userToken:res['user-token'],
-                    objectId:res.objectId
+                    userId:res.objectId,
+                    profilePicPublicId:res.profilePicPublicId
                 });
                 navigate('/');
             })
-            .catch(ex=>{
-                console.log(ex.message);
-            });
+            .catch(ex=> console.log(ex.message));
     }
 
     return(

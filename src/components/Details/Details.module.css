@@ -1,19 +1,23 @@
-.imgWrapper {
-    height: 91vh;
-}
-
-.image {
-    height: 100%;
-    border-radius: 5px;
-}
-
 .imgWrapperLandscape {
     width: 100%;
 }
 
-.imgWrapperLandscape img {
+.imgWrapperPortrait {
+    /*height: 91vh;*/
+}
+
+.imageLandscape {
     width: 100%;
-    border-radius: 3px;
+    border-radius: 5px;
+}
+
+.imagePortrait {
+    /*height: 100%;*/
+    border-radius: 5px;
+}
+
+.likeSection,.titleSection{
+    margin-bottom: 40px;
 }
 
 .mainContainer {
@@ -22,13 +26,16 @@
     width: 75%;
 }
 
-.postContainer {
+.postContainerPortrait {
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
 
 .postContainerLandscape {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
     flex-direction: column;
 }
 
@@ -36,18 +43,6 @@
     display: flex;
     padding: 10px;
     align-items: center;
-}
-
-.commentImgWrapper {
-    width: 70px;
-    margin-right: 10px;
-
-}
-
-.commentImgWrapper img {
-    width: 100%;
-    border-radius: 50%;
-
 }
 
 .commentSection {
@@ -73,11 +68,17 @@
 
 .postText {
     padding: 10px 20px;
+    flex-basis: 50%;
+    flex-shrink: 0;
 }
 
 
 .commentInputContent, .commentInputContent input {
-    width: 100%;
+    width: 93%;
+}
+
+.commentInputContent{
+    margin: 0 7px;
 }
 
 .commentInputWrapper {
