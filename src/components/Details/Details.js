@@ -72,7 +72,7 @@ export default function Details() {
                         <h1>{imageData.title}</h1>
                         <p>{imageData.description}</p>
                     </section>
-                    {userData.userId && <LikeSection postId={postId} userId={userData.userId}/>}
+                    {userData.userId && <LikeSection postOwnerId={owner.objectId}/>}
                     <section className={styles.creatorSection}>
                         <section>
                             <Image publicId={owner.profilePicPublicId}

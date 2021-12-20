@@ -1,3 +1,13 @@
+export const deletePostById = (postId,userToken) =>{
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts/${postId}`,{
+        method:"DELETE",
+        headers:{
+            "Content-Type":"application/json",
+            "user-token":userToken
+        }
+    }).then(res=>res.json());
+}
+
 export const likePost = (postId, userId) => {
     fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts/${postId}/likes`, {
         method: "PUT",

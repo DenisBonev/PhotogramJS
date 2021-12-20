@@ -1,7 +1,28 @@
 .likeSection{
     margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
 }
 
 .likeButton {
     font-size: 40px;
+}
+
+.editButton{
+    font-size: 40px;
+    color: limegreen;
+}
+
+.editButton:hover{
+    color: #1c8a60;
+}
+
+.deleteButton{
+    font-size: 40px;
+    color:gray;
+}
+
+.deleteButton:hover{
+    color: black;
 }
