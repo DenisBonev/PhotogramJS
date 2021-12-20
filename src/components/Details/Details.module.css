@@ -39,22 +39,8 @@
     flex-direction: column;
 }
 
-.commentCard {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-}
 
-.commentSection {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    box-shadow: inset 0 0 4px 1px;
-    border-radius: 5px;
-}
+
 
 .likeButton {
     font-size: 40px;
@@ -73,21 +59,3 @@
 }
 
 
-.commentInputContent, .commentInputContent input {
-    width: 93%;
-}
-
-.commentInputContent{
-    margin: 0 7px;
-}
-
-.commentInputWrapper {
-    display: flex;
-    justify-content: space-between;
-}
-
-.commentInputWrapper button {
-    width: 7%;
-    padding: 4px;
-    border-radius: 3px;
-}

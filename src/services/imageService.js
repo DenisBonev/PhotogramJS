@@ -39,14 +39,14 @@ export const uploadImagePost = (imageData, userToken) => {
     return uploadImageCloudinary(imageData.image)
         .then(res =>
             uploadImageBackendless({
-                url: res.url,
+                publicId: res.url.substring(res.url.indexOf("upload/")+7).split(".")[0],
                 title: imageData.title,
                 description: imageData.description,
                 userToken: userToken
             }));
 }
 
-const uploadImageBackendless = ({url, title, description, userToken}) => {
+const uploadImageBackendless = ({publicId, title, description, userToken}) => {
     return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts`, {
         method: 'POST',
         headers: {
@@ -54,7 +54,7 @@ const uploadImageBackendless = ({url, title, description, userToken}) => {
             'user-token': userToken
         },
         body: JSON.stringify({
-            url, title, description
+            publicId, title, description
         })
     });
 };

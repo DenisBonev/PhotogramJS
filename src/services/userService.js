@@ -1,5 +1,10 @@
 const backendlessPath = `${process.env.REACT_APP_BACKENDLESS_BASE_URL}`;
 
+export function getCommentatorById(userId){
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/Users/${userId}?property=objectId&property=username&property=profilePicPublicId`)
+        .then(res=>res.json())
+        .catch(err=>console.log(err));
+}
 
 export function getById(userId){
    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/Users/${userId}`)
