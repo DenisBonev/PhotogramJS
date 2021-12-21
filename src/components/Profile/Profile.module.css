@@ -1,0 +1,8 @@
+.editButton{
+    font-size: 40px;
+    color: limegreen;
+}
+
+.editButton:hover{
+    color: #1c8a60;
+}

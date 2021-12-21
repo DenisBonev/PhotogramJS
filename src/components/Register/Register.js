@@ -19,8 +19,7 @@ export default function Register() {
         if (formData.get("password") === formData.get("repeat-password")) {
             let userData = Object.fromEntries(formData);
             delete userData['repeat-password'];
-            userService.registerUser(userData)
-                .then(res=>console.log(res));
+            userService.registerUser(userData);
 
             navigate("/");
         }
@@ -82,6 +81,11 @@ export default function Register() {
                         </li>
                     </section>
                     <section className={styles.formSection}>
+                        <li className={styles.inputLi}>
+                            <label htmlFor="description" className="text-danger">Description</label>
+                            <textarea className={styles.formTextArea} id="description" name="description" placeholder="Tell people something about you..."/>
+                        </li>
+                    </section><section className={styles.formSection}>
                         <li className={styles.inputLi}>
                             <button className={styles.formSubmitBtn}>Register</button>
                         </li>

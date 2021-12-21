@@ -13,7 +13,7 @@ export function getById(userId){
 }
 
 export function registerUser(userData) {
-    return uploadProfilePic(userData.image)
+     uploadProfilePic(userData.image)
         .then(res => {
             delete userData.image;
             userData.profilePicPublicId = res.url.substring(res.url.indexOf("upload/")+7).split(".")[0];

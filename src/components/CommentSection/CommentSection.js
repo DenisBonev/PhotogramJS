@@ -24,16 +24,16 @@ export default function CommentSection({postId}) {
             .then(() => setCommentsPosted(commentsPosted + 1));
         e.currentTarget.reset();
     }
+    const commentSection = <section className={styles.commentSection}>
+        {comments.map(x => <CommentCard key={x.objectId} comment={x}/>)}
+    </section>;
     return (
         <>
             <section className={styles.commentSectionWrapper}>
                 <h4>Comments:</h4>
-                <section className={styles.commentSection}>
-                    {comments.length > 0
-                        ? comments.map(x => <CommentCard key={x.objectId} comment={x}/>)
-                        :<h6>Be the first one to comment this amazing picture!</h6>
-                    }
-                </section>
+                {comments.length > 0
+                ? commentSection
+                :<h6 className={styles.noCommentLabel}>Be the first one to comment this amazing picture!</h6>}
             </section>
             {userData.userId &&
             <section>

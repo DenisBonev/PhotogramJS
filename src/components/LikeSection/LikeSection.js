@@ -35,10 +35,7 @@ export default function LikeSection({postOwnerId}) {
     const onDelete = (e) => {
         e.preventDefault();
         imageService.deletePostById(postId,userData.userToken)
-            .then(res=> {
-                console.log(res);
-                navigate("/")});
-    }
+            .then(()=> navigate("/"))}
 
     return (
         <section className={styles.likeSection}>
