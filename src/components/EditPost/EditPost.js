@@ -5,8 +5,9 @@ import {useNavigate, useParams} from "react-router-dom";
 import {AuthContext} from "../../contexts/AuthContext";
 import * as validator from "./EditPostHelpers";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import {isAuthorized} from "../../hoc/isAuthorized";
 
-export default function EditPost() {
+function EditPost() {
     const {userData} = useContext(AuthContext);
     const [selectedFileSrc, setSelectedFileSrc] = useState(null);
     const [errors, setErrors] = useState({
@@ -71,3 +72,5 @@ export default function EditPost() {
         </section>
     )
 }
+
+export default isAuthorized(EditPost);

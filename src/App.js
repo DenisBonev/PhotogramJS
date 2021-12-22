@@ -36,7 +36,7 @@ function App() {
     }
 
     return (
-        <AuthContext.Provider value={{userData, login, logout}}>
+        <AuthContext.Provider value={{userData,isAuthorized:Boolean(userData.userId) , login, logout}}>
             <div className="App">
                 <Header/>
 

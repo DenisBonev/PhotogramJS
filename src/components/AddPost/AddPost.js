@@ -1,13 +1,13 @@
 import styles from "./AddPost.module.css";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import * as imageService from "../../services/imageService";
 import {useNavigate} from "react-router-dom";
-import {useContext} from "react";
 import {AuthContext} from "../../contexts/AuthContext";
 import * as validator from "./AddPostHelpers";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import {isAuthorized} from "../../hoc/isAuthorized";
 
-export default function AddPost() {
+function AddPost() {
     const {userData} = useContext(AuthContext);
     const [selectedFileSrc, setSelectedFileSrc] = useState(null);
     const [errors, setErrors] = useState({
@@ -20,7 +20,7 @@ export default function AddPost() {
         e.preventDefault();
         if (e.target.files[0]) {
             setSelectedFileSrc(window.URL.createObjectURL(e.target.files[0]));
-        }else {
+        } else {
             setSelectedFileSrc(null);
         }
     }
@@ -28,13 +28,13 @@ export default function AddPost() {
     const onSubmit = (e) => {
         e.preventDefault();
         for (let error in errors) {
-            if (error){
+            if (error) {
                 return;
             }
         }
         const formData = Object.fromEntries(new FormData(e.currentTarget));
-        imageService.uploadImagePost(formData,userData['userToken'])
-            .then(()=>{
+        imageService.uploadImagePost(formData, userData['userToken'])
+            .then(() => {
                 navigate('/');
             })
             .catch(err => {
@@ -59,12 +59,14 @@ export default function AddPost() {
                     </li>
                     <li className={styles.inputLi}>
                         <label className="text-danger" htmlFor="title">Title</label>
-                        <input className={styles.formInput} type="text" name="title" id="title" onBlur={(e)=>validator.validateInput(e,errors,setErrors)}/>
+                        <input className={styles.formInput} type="text" name="title" id="title"
+                               onBlur={(e) => validator.validateInput(e, errors, setErrors)}/>
                         {errors.title && <ErrorMessage message={errors.title}/>}
                     </li>
                     <li className={styles.inputLi}>
                         <label className="text-danger" htmlFor="description">Caption</label>
-                        <textarea className={styles.formTextArea} name="description" id="description" onChange={(e)=>validator.validateTextArea(e,errors,setErrors)}/>
+                        <textarea className={styles.formTextArea} name="description" id="description"
+                                  onChange={(e) => validator.validateTextArea(e, errors, setErrors)}/>
                         {errors.description && <ErrorMessage message={errors.description}/>}
                     </li>
                     <li className={styles.inputLi}>
@@ -75,3 +77,5 @@ export default function AddPost() {
         </section>
     )
 }
+
+export default isAuthorized(AddPost);

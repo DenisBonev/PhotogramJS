@@ -5,9 +5,9 @@ import {useContext, useEffect, useState} from "react";
 import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import * as validator from "./EditUserHelpers";
 import {AuthContext} from "../../contexts/AuthContext";
+import {isAuthorized} from "../../hoc/isAuthorized";
 
-
-export default function EditUser() {
+function EditUser() {
     const {userData: userContext} = useContext(AuthContext);
     const [userData, setUserData] = useState({});
     const [selectedFileSrc, setSelectedFileSrc] = useState(null);
@@ -40,7 +40,7 @@ export default function EditUser() {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         for (let error in errors) {
-            if (error){
+            if (error) {
                 return;
             }
         }
@@ -51,7 +51,7 @@ export default function EditUser() {
         }
         delete editData['repeat-password'];
         userService.editUser(editData, userData.objectId, userContext.userToken)
-            .then(res => {
+            .then(() => {
                 navigate(`/profile/${userId}`);
             });
     }
@@ -152,3 +152,5 @@ export default function EditUser() {
         </section>
     );
 }
+
+export default isAuthorized(EditUser);
