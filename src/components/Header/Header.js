@@ -22,36 +22,10 @@ export default function Header() {
                         <span className="align-middle">{userData.username}</span>
                     </Link>
                 </li>
-                <li className="nav-item dropdown">
-                    <Link className="nav-link" to="#" id="dropdown02" data-toggle="dropdown" aria-haspopup="true"
-                          aria-expanded="false">
-                        <svg style={{marginTop: 10}} className="_3DJPT" version="1.1" viewBox="0 0 32 32"
-                             width="21"
-                             height="21" aria-hidden="false" data-reactid="71">
-                            <path
-                                d="M7 15.5c0 1.9-1.6 3.5-3.5 3.5s-3.5-1.6-3.5-3.5 1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5zm21.5-3.5c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5zm-12.5 0c-1.9 0-3.5 1.6-3.5 3.5s1.6 3.5 3.5 3.5 3.5-1.6 3.5-3.5-1.6-3.5-3.5-3.5z"
-                                data-reactid="22"></path>
-                        </svg>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/logout">
+                        <i className="fas fa-sign-out-alt"></i>
                     </Link>
-                    <div className="dropdown-menu dropdown-menu-right shadow-lg" aria-labelledby="dropdown02">
-                        <h4 className="dropdown-header display-4">
-                            Menu
-                        </h4>
-                        <div className="dropdown-divider"></div>
-                        <ul className="toggle-menu">
-                            <li className="dropdown-item">
-                                <Link to="#" className="btn btn-primary d-block">
-                                    My Profile
-                                </Link>
-                            </li>
-
-                            <li className="dropdown-item">
-                                <Link to="#" className="btn btn-primary d-block">
-                                    Logout
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
                 </li>
             </>
         )

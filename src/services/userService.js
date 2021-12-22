@@ -69,7 +69,7 @@ const registerUserBackendless = (userData) => {
         .catch(err => console.log(err.json()));
 }
 
-export const editUser = (userData, userId,userToken) => {
+export const editUser = (userData, userId, userToken) => {
     return uploadProfilePic(userData.image)
         .then(res => {
             delete userData.image;
@@ -78,11 +78,21 @@ export const editUser = (userData, userId,userToken) => {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
-                    'user-token':userToken
+                    'user-token': userToken
                 },
                 body: JSON.stringify(userData)
             })
                 .then(res => res.json())
                 .catch(err => console.log(err.json()));
         });
+}
+
+export const logout = (userToken) => {
+    return fetch(`${backendlessPath}/api/users/logout`, {
+        headers: {
+            'user-token': userToken
+        }
+    })
+        .then(res => res)
+        .catch(err => console.log(err));
 }

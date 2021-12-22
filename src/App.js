@@ -11,10 +11,11 @@ import Home from "./components/Home/Home";
 import Details from "./components/Details/Details";
 import EditUser from "./components/EditUser/EditUser";
 import EditPost from "./components/EditPost/EditPost";
+import Logout from "./components/Logout/Logout";
 
 function App() {
 
-    const [userData,setUserData] = useState({
+    const [userData, setUserData] = useState({
         username: '',
         userId: '',
         userToken: '',
@@ -25,8 +26,17 @@ function App() {
         setUserData(userData);
     }
 
+    const logout = () => {
+        setUserData({
+            username: '',
+            userId: '',
+            userToken: '',
+            profilePicPublicId: ''
+        });
+    }
+
     return (
-        <AuthContext.Provider value={{userData ,login}}>
+        <AuthContext.Provider value={{userData, login, logout}}>
             <div className="App">
                 <Header/>
 
@@ -40,6 +50,7 @@ function App() {
                         <Route path="/details/:postId/edit" element={<EditPost/>}/>
                         <Route path="/details/:postId" element={<Details/>}/>
                         <Route path="/post" element={<AddPost/>}/>
+                        <Route path="/logout" element={<Logout/>}/>
                     </Routes>
                 </main>
 

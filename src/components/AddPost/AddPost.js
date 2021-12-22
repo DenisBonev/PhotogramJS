@@ -27,6 +27,11 @@ export default function AddPost() {
 
     const onSubmit = (e) => {
         e.preventDefault();
+        for (let error in errors) {
+            if (error){
+                return;
+            }
+        }
         const formData = Object.fromEntries(new FormData(e.currentTarget));
         imageService.uploadImagePost(formData,userData['userToken'])
             .then(()=>{
