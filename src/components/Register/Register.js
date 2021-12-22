@@ -32,6 +32,11 @@ export default function Register() {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
+        for (let error in errors) {
+            if (error){
+                return;
+            }
+        }
         let userData = Object.fromEntries(new FormData(e.currentTarget));
         if (userData.password !== userData['repeat-password']) {
             setErrors({...errors, repeatPassword: "Passwords don't match!"});

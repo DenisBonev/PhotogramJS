@@ -1,25 +1,25 @@
 const backendlessPath = `${process.env.REACT_APP_BACKENDLESS_BASE_URL}`;
 
-export function getCommentatorById(userId){
-    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/Users/${userId}?property=objectId&property=username&property=profilePicPublicId`)
-        .then(res=>res.json())
-        .catch(err=>console.log(err));
+export function getCommentatorById(userId) {
+    return fetch(`${backendlessPath}/api/data/Users/${userId}?property=objectId&property=username&property=profilePicPublicId`)
+        .then(res => res.json())
+        .catch(err => console.log(err));
 }
 
-export function getById(userId){
-   return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/Users/${userId}`)
-        .then(res=>res.json())
-        .catch(err=>console.log(err));
+export function getById(userId) {
+    return fetch(`${backendlessPath}/api/data/Users/${userId}`)
+        .then(res => res.json())
+        .catch(err => console.log(err));
 }
 
 export function registerUser(userData) {
-     uploadProfilePic(userData.image)
+    uploadProfilePic(userData.image)
         .then(res => {
-            delete userData.image;
-            userData.profilePicPublicId = res.url?.substring(res.url.indexOf("upload/")+7).split(".")[0];
-            return registerUserBackendless(userData);
-        }
-    );
+                delete userData.image;
+                userData.profilePicPublicId = res.url?.substring(res.url.indexOf("upload/") + 7).split(".")[0];
+                return registerUserBackendless(userData);
+            }
+        );
 }
 
 export async function login({username, password}) {
@@ -54,7 +54,7 @@ const uploadProfilePic = (file) => {
         body: formData
     })
         .then(res => res.json())
-        .catch(err=>console.log(err.json()));
+        .catch(err => console.log(err.json()));
 }
 
 const registerUserBackendless = (userData) => {
@@ -66,5 +66,23 @@ const registerUserBackendless = (userData) => {
         body: JSON.stringify(userData)
     })
         .then(res => res.json())
-        .catch(err=>console.log(err.json()));
+        .catch(err => console.log(err.json()));
+}
+
+export const editUser = (userData, userId,userToken) => {
+    return uploadProfilePic(userData.image)
+        .then(res => {
+            delete userData.image;
+            userData.profilePicPublicId = res.url?.substring(res.url.indexOf("upload/") + 7).split(".")[0];
+            return fetch(`${backendlessPath}/api/data/Users/${userId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'user-token':userToken
+                },
+                body: JSON.stringify(userData)
+            })
+                .then(res => res.json())
+                .catch(err => console.log(err.json()));
+        });
 }

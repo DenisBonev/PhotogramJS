@@ -54,7 +54,7 @@ export const uploadImagePost = (imageData, userToken) => {
     return uploadImageCloudinary(imageData.image)
         .then(res =>
             uploadImageBackendless({
-                publicId: res.url.substring(res.url.indexOf("upload/")+7).split(".")[0],
+                publicId: res.url.substring(res.url?.indexOf("upload/")+7).split(".")[0],
                 title: imageData.title,
                 description: imageData.description,
                 userToken: userToken

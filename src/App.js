@@ -9,6 +9,7 @@ import {AuthContext} from "./contexts/AuthContext";
 import {useState} from "react";
 import Home from "./components/Home/Home";
 import Details from "./components/Details/Details";
+import EditUser from "./components/EditUser/EditUser";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
                         <Route path="/register" element={<Register/>}/>
                         <Route path="/login" element={<Login/>}/>
                         <Route path="/profile/:userId" element={<Profile/>}/>
+                        <Route path="/profile/:userId/edit" element={<EditUser/>}/>
                         <Route path="/details/:postId" element={<Details/>}/>
                         <Route path="/post" element={<AddPost/>}/>
                     </Routes>
