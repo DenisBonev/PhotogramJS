@@ -1,16 +1,30 @@
-export const getPostsByUserId = (userId) =>{
-    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts?where=ownerId%3D'${userId}'`)
-        .then(res=>res.json());
+export const editImageData = (imageData, userToken, postId) => {
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts/${postId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'user-token': userToken
+        },
+        body: JSON.stringify({
+            title: imageData.title,
+            description: imageData.description
+        })
+    });
 }
 
-export const deletePostById = (postId,userToken) =>{
-    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts/${postId}`,{
-        method:"DELETE",
-        headers:{
-            "Content-Type":"application/json",
-            "user-token":userToken
+export const getPostsByUserId = (userId) => {
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts?where=ownerId%3D'${userId}'`)
+        .then(res => res.json());
+}
+
+export const deletePostById = (postId, userToken) => {
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts/${postId}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json",
+            "user-token": userToken
         }
-    }).then(res=>res.json());
+    }).then(res => res.json());
 }
 
 export const likePost = (postId, userId) => {
@@ -20,8 +34,8 @@ export const likePost = (postId, userId) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({objectId: userId})
-    }).then(res=>res.json())
-        .catch(err=>console.log(err));
+    }).then(res => res.json())
+        .catch(err => console.log(err));
 }
 
 export const unlikePost = (postId, userId) => {
@@ -31,8 +45,8 @@ export const unlikePost = (postId, userId) => {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({objectId: userId})
-    }).then(res=>res.json())
-        .catch(err=>console.log(err));
+    }).then(res => res.json())
+        .catch(err => console.log(err));
 }
 
 export const getAll = () => {
@@ -54,7 +68,7 @@ export const uploadImagePost = (imageData, userToken) => {
     return uploadImageCloudinary(imageData.image)
         .then(res =>
             uploadImageBackendless({
-                publicId: res.url.substring(res.url?.indexOf("upload/")+7).split(".")[0],
+                publicId: res.url.substring(res.url?.indexOf("upload/") + 7).split(".")[0],
                 title: imageData.title,
                 description: imageData.description,
                 userToken: userToken

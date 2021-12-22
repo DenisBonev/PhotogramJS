@@ -42,7 +42,7 @@ export default function CommentSection({postId}) {
                         <section>
                             <Image publicId={userData.profilePicPublicId}
                                    cloudName={process.env.REACT_APP_CLOUDINARY_CLOUDNAME}>
-                                <Transformation gravity="face" height="400" width="400" crop="crop"/>
+                                <Transformation gravity="face" height="700" width="700" crop="crop"/>
                                 <Transformation/>
                                 <Transformation crop="scale" width="70"/>
                             </Image>

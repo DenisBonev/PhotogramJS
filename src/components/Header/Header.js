@@ -16,7 +16,7 @@ export default function Header() {
                 <li className="nav-item">
                     <Link className="nav-link" to={`/profile/${userData.userId}`}>
                         <Image cloudName={process.env.REACT_APP_CLOUDINARY_CLOUDNAME} publicId={userData.profilePicPublicId}>
-                            <Transformation gravity="face" width="450" crop="thumb" radius="max"/>
+                            <Transformation gravity="face" width="700" height="700" crop="thumb" radius="max"/>
                             <Transformation crop="scale" width="35"/>
                         </Image>
                         <span className="align-middle">{userData.username}</span>
@@ -87,7 +87,7 @@ export default function Header() {
                     <ul className="navbar-nav ml-auto align-items-center">
 
                         <li className="nav-item">
-                            <Link className="nav-link active" to="/">Home</Link>
+                            <Link className="nav-link active" to="/">Explore</Link>
                         </li>
                         {userData.username
                             ? loggedNav
