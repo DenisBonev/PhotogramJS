@@ -16,7 +16,7 @@ export function registerUser(userData) {
      uploadProfilePic(userData.image)
         .then(res => {
             delete userData.image;
-            userData.profilePicPublicId = res.url.substring(res.url.indexOf("upload/")+7).split(".")[0];
+            userData.profilePicPublicId = res.url?.substring(res.url.indexOf("upload/")+7).split(".")[0];
             return registerUserBackendless(userData);
         }
     );

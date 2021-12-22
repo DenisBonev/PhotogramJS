@@ -34,15 +34,17 @@ export default function LikeSection({postOwnerId}) {
     }
     const onDelete = (e) => {
         e.preventDefault();
-        imageService.deletePostById(postId,userData.userToken)
-            .then(()=> navigate("/"))}
+        imageService.deletePostById(postId, userData.userToken)
+            .then(() => navigate("/"))
+    }
 
     return (
         <section className={styles.likeSection}>
             {liked
                 ? <Link className={styles.likeButton} onClick={onLike} to={`/post/${postId}/like`}><i
-                    className="fas fa-heart"></i></Link>
+                    className="fas fa-heart">10</i></Link>
                 : <Link className={styles.likeButton} onClick={onLike} to="#"><i className="far fa-heart"></i></Link>
+                //TODO: Display likes count
             }
             {postOwnerId === userData.userId &&
             <>
