@@ -1,4 +1,22 @@
-# Getting Started with Create React App
+#PhotogramJS
+#Preview
+
+PhotogramJS is a photosharing web system created as a defence project for SoftUni's ReactJS course.
+
+## Technologies used
+
+### Front-end
+ ReactJS, Bootstrap, HTML5, CSS
+
+### Backend
+ Backendless, Cloudinary
+
+## Functionality
+
+Guests can read images and user profiles.
+
+Registered users can post, edit and delete their images, comment and like all images, and edit their profile info.
+# Getting Started
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
