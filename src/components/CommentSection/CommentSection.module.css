@@ -17,6 +17,10 @@
     padding: 10px 0;
 }
 
+.commentSectionWrapper{
+    padding: 10px 20px;
+}
+
 .commentInputContent {
     margin: 0 7px;
 }

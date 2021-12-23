@@ -50,7 +50,7 @@ export const unlikePost = (postId, userId) => {
 }
 
 export const getAll = () => {
-    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts`)
+    return fetch(`${process.env.REACT_APP_BACKENDLESS_BASE_URL}/api/data/posts?pageSize=100`)
         .then(res => res.json());
 }
 
@@ -98,5 +98,6 @@ const uploadImageCloudinary = (file) => {
     return fetch(`https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDINARY_CLOUDNAME}/image/upload`, {
         method: 'POST',
         body: formData
-    }).then(res => res.json());
+    }).then(res => res.json())
+        .catch(err=>console.log(err));
 }

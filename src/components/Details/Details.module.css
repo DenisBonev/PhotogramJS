@@ -1,4 +1,5 @@
 .imgWrapperLandscape {
+    align-self: center;
     width: 100%;
 }
 
@@ -8,6 +9,7 @@
 
 .imageLandscape {
     width: 100%;
+    margin: 0 auto;
     border-radius: 5px;
 }
 
@@ -16,7 +18,7 @@
     border-radius: 5px;
 }
 
-.titleSection{
+.titleSection {
     margin-bottom: 40px;
 }
 
@@ -29,13 +31,11 @@
 .postContainerPortrait {
     display: flex;
     justify-content: space-around;
-    padding: 10px;
 }
 
 .postContainerLandscape {
     display: flex;
     justify-content: space-around;
-    padding: 10px;
     flex-direction: column;
 }
 
@@ -49,6 +49,7 @@
     padding: 10px 20px;
     flex-basis: 50%;
     flex-shrink: 0;
+
 }
 
 

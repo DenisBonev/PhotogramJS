@@ -29,42 +29,24 @@ export default function Details() {
 
     }, [postId])
 
-
-    const determineOrientation = (publicId) => {
-        //TODO: get aspect ratio of Cloudinary component
-        const image = new Image();
-        image.url = `https://res.cloudinary.com/${process.env.REACT_APP_CLOUDINARY_CLOUDNAME}/image/upload/q-1/${publicId}`
-        const landscape = (image.width > image.height);
-        if (landscape) {
-            setImageData({
-                ...imageData,
-                orientation: 'landscape'
-            });
-        } else {
-            setImageData({
-                ...imageData,
-                orientation: 'portrait'
-            });
-        }
-    }
-
     return (
         <section className={styles.mainContainer}>
             <section className={
-                imageData.orientation === 'landscape'
+                imageData.orientation !== 'landscape'
                     ? styles.postContainerLandscape
                     : styles.postContainerPortrait}>
                 <article className={
-                    imageData.orientation === 'landscape'
+                    imageData.orientation !== 'landscape'
                         ? styles.imgWrapperLandscape
                         : styles.imgWrapperPortrait}>
                     <Image className={
-                        imageData.orientation === 'landscape'
+                        imageData.orientation !== 'landscape'
                             ? styles.imageLandscape
                             : styles.imagePortrait}
                            publicId={imageData.publicId}
                            cloudName={process.env.REACT_APP_CLOUDINARY_CLOUDNAME}>
                         <Placeholder type="blur"/>
+                        <Transformation background="auto:predominant" width="1280" height="720" crop="pad"/>
                     </Image>
                 </article>
                 <article className={styles.postText}>

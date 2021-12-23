@@ -33,7 +33,7 @@ export default function Register() {
     const onSubmitHandler = (e) => {
         e.preventDefault();
         for (let error in errors) {
-            if (error){
+            if (!error){
                 return;
             }
         }

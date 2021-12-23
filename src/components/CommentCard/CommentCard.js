@@ -21,7 +21,7 @@ export default function CommentCard({comment}) {
         <article className={styles.commentCard}>
             <section className={styles.commentImgWrapper}>
                 <Image cloudName={process.env.REACT_APP_CLOUDINARY_CLOUDNAME} publicId={user.profilePicPublicId}>
-                    <Transformation gravity="face" height="400" width="400" crop="crop"/>
+                    <Transformation gravity="face" height="700" width="700" crop="crop"/>
                     <Transformation radius="max"/>
                     <Transformation crop="scale" width="70"/>
                 </Image>

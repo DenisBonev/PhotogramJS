@@ -31,7 +31,11 @@ export default function Profile() {
         <>
             <div className="jumbotron border-round-0 min-50vh"
                 //TODO:Banner load
-                 style={{backgroundImage: `url()`}}>
+                 style={{
+                     backgroundImage: `url(https://res.cloudinary.com/${process.env.REACT_APP_CLOUDINARY_CLOUDNAME}/image/upload/v1640213296/photogramContent/shooting_time_lapses_photography-wallpaper-2560x1080_i5gubk.jpg)`,
+                     backgroundRepeat:`no-repeat`,
+                     backgroundSize: `cover`
+                 }}>
             </div>
             <div className="container mb-4">
                 <Image publicId={user.profilePicPublicId} cloudName={process.env.REACT_APP_CLOUDINARY_CLOUDNAME}
@@ -39,17 +43,17 @@ export default function Profile() {
                     <Transformation width="128" height="128" radius="max" crop="thumb"/>
                 </Image>
 
-                        <h1 className="font-weight-bold title">{user.username}</h1>
-                        <h3>{user.firstName} {user.lastName}</h3>
-                        <h5>{user.email}</h5>
-                        {user.description &&
-                        <p>
-                            {user.description}
-                        </p>
-                        }
-                {userId===userData.userId &&
-                        <Link className={styles.editButton} to={`/profile/${userId}/edit`}><i
-                            className="far fa-edit"></i></Link>}
+                <h1 className="font-weight-bold title">{user.username}</h1>
+                <h3>{user.firstName} {user.lastName}</h3>
+                <h5>{user.email}</h5>
+                {user.description &&
+                <p>
+                    {user.description}
+                </p>
+                }
+                {userId === userData.userId &&
+                <Link className={styles.editButton} to={`/profile/${userId}/edit`}><i
+                    className="far fa-edit"></i></Link>}
             </div>
             <div className="container-fluid mb-5">
                 <div className="row">
